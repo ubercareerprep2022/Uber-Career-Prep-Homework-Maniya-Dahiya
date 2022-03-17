@@ -78,7 +78,7 @@ def pairsThatEqualSum(inputArray: list, targetSum: int) -> list:
         complementVal = targetSum - value
         if complementVal in inputArraySet:
             resultList.append((value, complementVal))           # appending a list: O(1)
-        inputArraySet.remove(value)                             # removing from set: O(1)
+            inputArraySet.remove(value)                             # removing from set: O(1)
 
     return resultList
 
