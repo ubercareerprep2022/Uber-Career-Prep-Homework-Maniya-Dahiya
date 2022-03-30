@@ -16,7 +16,7 @@ Assumption: It is case-sensitive, but does care about white space.
 '''
 
 # Time Complexity: O(nlogn)
-# Space complexity: O(1)
+# Space complexity: O(n)
 
 
 def isStringPermutation(s1: str, s2: str) -> bool:
