@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  */
 
 
-public class SinglyLinkedList {
+public class SinglyLinkedList<T> {
 
     private  Node<T> head;
     int size;
@@ -21,7 +21,7 @@ public class SinglyLinkedList {
             head = node;
             return;
         }
-        Node current = head ;
+        Node<T> current = head ;
         while(current.next != null){
             current = current.next;
         }
