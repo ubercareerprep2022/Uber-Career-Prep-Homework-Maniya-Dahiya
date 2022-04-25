@@ -1,5 +1,24 @@
 import java.util.NoSuchElementException;
 
+public class Part4 {
+/**
+ * Node class used for implementing the SinglyLinkedList.
+ * @author Maniya Dahiya
+ * @version 1.0
+ */
+
+public class Node {
+
+    public int data;
+    public  Node next;
+
+    public  Node(int data) {
+        this.data = data ;
+        this.next = null ;
+    }
+}
+
+
 /**
  * My implementation of the SinglyLinkedList.
  * @author Maniya Dahiya
@@ -7,21 +26,23 @@ import java.util.NoSuchElementException;
  */
 
 
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList {
 
-    private  Node<T> head;
+
+
+    private  Node head;
     int size;
 
     public SinglyLinkedList() {
         size = 0;
     }
 
-    public void push(Node<T> node) {
+    public void push(Node node) {
         if (head == null) {
             head = node;
             return;
         }
-        Node<T> current = head ;
+        Node current = head ;
         while(current.next != null){
             current = current.next;
         }
@@ -29,12 +50,12 @@ public class SinglyLinkedList<T> {
         size++;
     }
 
-    public Node<T> pop() {
+    public int pop() {
         if (size == 0) {
             throw new NoSuchElementException("Data cannot be removed from an empty list.");
         }
-        Node<T> current = head;
-        Node<T> temp = null;
+        Node current = head;
+        int temp;
         if(current.next.next != null) {
             current = current.next;
         }
@@ -44,7 +65,7 @@ public class SinglyLinkedList<T> {
         return temp;
     }
 
-    public void insert(int index,Node<T> node) {
+    public void insert(int index, Node node) {
         if (index == 0) {
             node.next = head;
             head = node;
@@ -73,7 +94,7 @@ public class SinglyLinkedList<T> {
         size--;
     }
 
-    public Node<T> elementAt(int index) {
+    public Node elementAt(int index) {
         if (size == 0) {
             return null;
         }
@@ -106,14 +127,51 @@ public class SinglyLinkedList<T> {
     public boolean hasCycle(){
         Node fast = head ;
         Node slow = head ;
-        while (!fast && !fast.next) {
+        while (fast != null && fast.next !=null) {
             fast = fast.next.next ;
-            slow = slo.next;
+            slow = slow.next;
             if(slow == fast) {
                 return true;
             }
         }
         return false;
     }
+}
+
+
+
+public static void main(String args[]){
+    SinglyLinkedList dummyNode = new SinglyLinkedList();
+    System.out.println("Size: " + dummyNode.size());
+    dummyNode.printList();
+    dummyNode.push(new Node(1));
+    System.out.println("Size: " + dummyNode.size());
+    System.out.println(dummyNode.pop());
+    dummyNode.push(new Node(2));
+    dummyNode.printList();
+    System.out.println("Size: " + dummyNode.size());
+    dummyNode.push(new Node(3));
+    dummyNode.push(new Node(4));
+
+    dummyNode.remove(2);
+    System.out.println("Removed index 1: ");
+    dummyNode.printList();
+    System.out.println("Size: " + dummyNode.size());
+    dummyNode.remove(3);
+    
+    System.out.println("Insert 20 at index 3");
+    dummyNode.insert(2, new Node(20));
+
+    System.out.println("Check element at index 3: ");
+    System.out.println(dummyNode.elementAt(3));
+
+    dummyNode.printList();
+    System.out.println("Size: " + dummyNode.size());
+    System.out.println(dummyNode.hasCycle());
 
 }
+
+}
+
+
+
