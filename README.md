@@ -8,6 +8,3 @@ This is for the Homeworks assigned for UCP 2022!
 * April 15 - Part 4
 * April 29 - Part 5
 
-## Current Tasks:
-* Add tests for SLL
-* Complete Bonus for Part 4
