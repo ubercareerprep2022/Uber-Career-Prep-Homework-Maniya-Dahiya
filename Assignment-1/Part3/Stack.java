@@ -15,7 +15,7 @@ import java.util.ArrayList;
     }
 
     public void push(int data) {
-        stackArray.add(0, data);
+        stackArray.add(size() - 1, data);
     }
 
     public int pop() {

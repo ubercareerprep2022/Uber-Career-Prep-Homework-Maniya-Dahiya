@@ -17,7 +17,7 @@ public class Queue {
     }
 
     public void enqueue(int data){
-        queueArray.add(0, data);
+        queueArray.add(size() - 1, data);
     }
 
     public int dequeue(){
