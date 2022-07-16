@@ -78,6 +78,29 @@ class GraphWithAdjacencyList:
                 if adj not in visitedSet:
                     visitedSet.add(adj)
                     queue.append(adj)
+                    
+    '''
+    returns the minimum number of edges between two nodes
+    '''
+    def minEdgeDFS(self, u, v):
+        visited = []
+        minEdges = -12123123312
+        edgeCount = 0
+        def minNumberOfEdgesHelper(u, v):
+            visited[u] = True
+            if u == v:
+                if minEdges > edgeCount:
+                    minEdges = edgeCount  
+            else: 
+                for v in self.adjNodes[u]: 
+                    if not visited[v]: 
+                        edgeCount += 1
+            minEdges, edge_count = 0
+            self.minNumberOfEdgesHelper(u, v)
+            visited[u] = False
+            edge_count -= 1
+            return minEdges, edgeCount
+        return self.minNumberOfEdgesHelper(u, v)
         
 if __name__ == "__main__":
     dummyGraph = GraphWithAdjacencyList()

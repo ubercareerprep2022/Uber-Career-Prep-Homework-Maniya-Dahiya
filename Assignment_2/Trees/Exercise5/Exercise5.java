@@ -1,3 +1,4 @@
+package Exercise5;
 class Exercise5 {
 /**
 * Interface for a phone book.
@@ -39,6 +40,7 @@ public interface PhoneBook {
     present in the phone book.
     */
     public long find(String name);
+
     }
 
     
